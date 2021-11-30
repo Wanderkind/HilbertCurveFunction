@@ -44,9 +44,11 @@ for s in range(N):
 
         return L[i + 1][pointround]
     
-    print(PHC(n, point))
-    cx = PHC(n, point)[0]/(2**n - 1)
-    cy = PHC(n, point)[1]/(2**n - 1)
+    H = PHC(n, point)
+    
+    print(H)
+    cx = H[0]/(2**n - 1)
+    cy = H[1]/(2**n - 1)
     print([cx, cy])
     px.append(cx)
     py.append(cy)
