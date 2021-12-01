@@ -23,32 +23,32 @@ for s in range(N):
 
         pointround = round((4**n - 1)*point)
 
-        L = [[[0, 0]]]
+        L = []
         for i in range(n):
-            
-            l = []
-            
-            for j in range(4**i):
-                l.append([L[i][j][1], L[i][j][0]])
-                
-            for j in range(4**i):     
-                l.append([L[i][j][0], L[i][j][1] + 2**i])
-                
-            for j in range(4**i):
-                l.append([L[i][j][0] + 2**i, L[i][j][1] + 2**i])
-                
-            for j in range(4**i):
-                l.append([2**(i + 1) - 1 - L[i][j][1], 2**i - 1 - L[i][j][0]])
+            a = pointround//(4**(n - 1 - i))
+            pointround = pointround%(4**(n - 1 - i))
+            L.append([a, pointround])
 
-            L.append(l)
+        N = [[0, 0]]
 
-        return L[i + 1][pointround]
+        for i in range(n):
+            if L[n - 1 - i][0] == 0:
+                N.append([-1/4 + N[i][1]/2, -1/4 + N[i][0]/2])
+            
+            elif L[n - 1 - i][0] == 1:
+                N.append([-1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
+            
+            elif L[n - 1 - i][0] == 2:
+                N.append([1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
+            
+            else:
+                N.append([1/4 - N[i][1]/2, -1/4 - N[i][0]/2])
+
+        return [round(1/2 + N[n][0], 8), round(1/2 + N[n][1], 8)]
     
     H = PHC(n, point)
-    
-    print(H)
-    cx = H[0]*(2**(-n)) + 2**(-n - 1)
-    cy = H[1]*(2**(-n)) + 2**(-n - 1)
+    cx = H[0]
+    cy = H[1]
     print([cx, cy])
     px.append(cx)
     py.append(cy)
