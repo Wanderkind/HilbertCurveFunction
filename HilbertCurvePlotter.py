@@ -16,7 +16,6 @@ while True:
 px = []
 py = []
 for s in range(N):
-    
     n = s + 1
 
     pointround = round((4**n - 1)*point)
@@ -40,11 +39,11 @@ for s in range(N):
         else:
             N.append([1/4 - N[i][1]/2, -1/4 - N[i][0]/2])
 
-    cx = round(1/2 + N[n][0], 8)
-    cy = round(1/2 + N[n][1], 8)
+    cx = 1/2 + N[n][0]
+    cy = 1/2 + N[n][1]
     px.append(cx)
     py.append(cy)
-    print([cx, cy])
+    print([round(cx, 8), round(cy, 8)])
 
 plt.subplot(2, 1, 1)
 plt.plot(px, 'r-')
