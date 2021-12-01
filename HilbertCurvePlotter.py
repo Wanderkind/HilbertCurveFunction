@@ -62,3 +62,8 @@ plt.plot(py, 'b-')
 plt.title('cy')
 
 plt.show()
+
+plt.plot(px, py, '.g-')
+plt.title('Coordinate Convergence')
+
+plt.show()
