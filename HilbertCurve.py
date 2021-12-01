@@ -39,6 +39,6 @@ def PHC(n, point):
 H = PHC(n, point)
 
 print(H)
-cx = H[0]/(2**n - 1)
-cy = H[1]/(2**n - 1)
+cx = H[0]*(2**(-n)) + 2**(-n - 1)
+cy = H[1]*(2**(-n)) + 2**(-n - 1)
 print([cx, cy])
