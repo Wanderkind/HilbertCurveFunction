@@ -18,40 +18,34 @@ py = []
 for s in range(N):
     
     n = s + 1
-    
-    def PHC(n, point):
 
-        pointround = round((4**n - 1)*point)
+    pointround = round((4**n - 1)*point)
 
-        L = []
-        for i in range(n):
-            a = pointround//(4**(n - 1 - i))
-            pointround = pointround%(4**(n - 1 - i))
-            L.append([a, pointround])
+    L = []
+    for i in range(n):
+        a = pointround//(4**(n - 1 - i))
+        pointround = pointround%(4**(n - 1 - i))
+        L.append([a, pointround])
 
-        N = [[0, 0]]
+    N = [[0, 0]]
+    for i in range(n):
+        if L[n - 1 - i][0] == 0:
+            N.append([-1/4 + N[i][1]/2, -1/4 + N[i][0]/2])
+        
+        elif L[n - 1 - i][0] == 1:
+            N.append([-1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
+        
+        elif L[n - 1 - i][0] == 2:
+            N.append([1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
+        
+        else:
+            N.append([1/4 - N[i][1]/2, -1/4 - N[i][0]/2])
 
-        for i in range(n):
-            if L[n - 1 - i][0] == 0:
-                N.append([-1/4 + N[i][1]/2, -1/4 + N[i][0]/2])
-            
-            elif L[n - 1 - i][0] == 1:
-                N.append([-1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
-            
-            elif L[n - 1 - i][0] == 2:
-                N.append([1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
-            
-            else:
-                N.append([1/4 - N[i][1]/2, -1/4 - N[i][0]/2])
-
-        return [round(1/2 + N[n][0], 8), round(1/2 + N[n][1], 8)]
-    
-    H = PHC(n, point)
-    print(H)
-    cx = H[0]
-    cy = H[1]
+    cx = round(1/2 + N[n][0], 8)
+    cy = round(1/2 + N[n][1], 8)
     px.append(cx)
     py.append(cy)
+    print([cx, cy])
 
 plt.subplot(2, 1, 1)
 plt.plot(px, 'r-')
