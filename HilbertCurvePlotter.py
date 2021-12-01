@@ -23,8 +23,7 @@ for s in range(N):
 
     L = []
     for i in range(n):
-        a = pointround//(4**(n - 1 - i))
-        L.append(a)
+        L.append(pointround//(4**(n - 1 - i)))
         pointround = pointround%(4**(n - 1 - i))
 
     N = [[0, 0]]
