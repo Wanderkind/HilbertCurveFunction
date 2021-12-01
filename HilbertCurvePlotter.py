@@ -47,9 +47,9 @@ for s in range(N):
         return [round(1/2 + N[n][0], 8), round(1/2 + N[n][1], 8)]
     
     H = PHC(n, point)
+    print(H)
     cx = H[0]
     cy = H[1]
-    print([cx, cy])
     px.append(cx)
     py.append(cy)
 
