@@ -16,18 +16,18 @@ pointround = round((4**n - 1)*point)
 L = []
 for i in range(n):
     a = pointround//(4**(n - 1 - i))
+    L.append(a)
     pointround = pointround%(4**(n - 1 - i))
-    L.append([a, pointround])
 
 N = [[0, 0]]
 for i in range(n):
-    if L[n - 1 - i][0] == 0:
+    if L[n - 1 - i] == 0:
         N.append([-1/4 + N[i][1]/2, -1/4 + N[i][0]/2])
     
-    elif L[n - 1 - i][0] == 1:
+    elif L[n - 1 - i] == 1:
         N.append([-1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
     
-    elif L[n - 1 - i][0] == 2:
+    elif L[n - 1 - i] == 2:
         N.append([1/4 + N[i][0]/2, 1/4 + N[i][1]/2])
     
     else:
