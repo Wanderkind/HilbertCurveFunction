@@ -43,7 +43,7 @@ for s in range(N):
     cy = round(1/2 + N[n][1], 8)
     px.append(cx)
     py.append(cy)
-    print(cx, cy])
+    print([cx, cy])
 
 plt.subplot(2, 1, 1)
 plt.plot(px, 'r-')
