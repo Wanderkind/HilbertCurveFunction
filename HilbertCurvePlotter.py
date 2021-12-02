@@ -39,11 +39,11 @@ for s in range(N):
         else:
             N.append([1/4 - N[i][1]/2, -1/4 - N[i][0]/2])
 
-    cx = 1/2 + N[n][0]
-    cy = 1/2 + N[n][1]
+    cx = round(1/2 + N[n][0], 8)
+    cy = round(1/2 + N[n][1], 8)
     px.append(cx)
     py.append(cy)
-    print([round(cx, 8), round(cy, 8)])
+    print(cx, cy])
 
 plt.subplot(2, 1, 1)
 plt.plot(px, 'r-')
