@@ -39,8 +39,12 @@ for s in range(N):
         else:
             N.append([1/4 - N[i][1]/2, -1/4 - N[i][0]/2])
 
-    cx = round(1/2 + N[n][0], 8)
-    cy = round(1/2 + N[n][1], 8)
+    cx = round(1/2 + N[n][0], 7)
+    cy = round(1/2 + N[n][1], 7)
+    
+    if point == 1 and cy == 0.5:
+        cy = 0.0
+    
     px.append(cx)
     py.append(cy)
     print([cx, cy])
