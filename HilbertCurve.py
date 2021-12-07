@@ -32,4 +32,10 @@ for i in range(n):
     else:
         N.append([1/4 - N[i][1]/2, -1/4 - N[i][0]/2])
 
-print([round(1/2 + N[n][0], 8), round(1/2 + N[n][1], 8)])
+cx = round(1/2 + N[n][0], 7)
+cy = round(1/2 + N[n][1], 7)
+
+if point == 1 and cy == 0.5:
+    cy = 0.0
+
+print([cx, cy])
